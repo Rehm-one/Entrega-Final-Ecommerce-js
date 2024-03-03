@@ -36,11 +36,11 @@ function cargarProductosCarrito() {
                 </div>
                 <div class="carrito-producto-precio">
                     <small>Precio</small>
-                    <p>${producto.precio}</p>
+                    <p>$${producto.precio}</p>
                 </div>
                 <div class="carrito-producto-subtotal">
                     <small>Subtotal</small>
-                    <p>${producto.precio * producto.cantidad}</p>
+                    <p>$ ${producto.precio * producto.cantidad}</p>
                 </div>
                 <button class="carrito-producto-eliminar" id="${producto.id}"><i class="bi bi-trash-fill"></i></button>
             `;
@@ -82,6 +82,7 @@ function eliminarDelcarrito(e) {
         productosEncarrito.splice(index, 1);
         localStorage.setItem("productos-en-carrito", JSON.stringify(productosEncarrito));
         cargarProductosCarrito();
+        actualizarTotalCarrito();
     }
 }
 
